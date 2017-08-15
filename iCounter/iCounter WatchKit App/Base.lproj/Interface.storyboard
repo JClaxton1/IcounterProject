@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15G1510" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller alwaysBounce="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="iCounter_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <separator alignment="left" verticalAlignment="center" id="a3h-vE-uN2"/>
+                        <label alignment="center" verticalAlignment="center" text="iCounter" minimumScaleFactor="0.5" id="9uq-9h-z3a">
+                            <color key="textColor" red="1" green="0.34901960780000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="25"/>
+                        </label>
+                        <separator alignment="left" verticalAlignment="center" id="dpz-NF-uVZ"/>
+                        <label alignment="center" verticalAlignment="center" text="Count Anything" textAlignment="center" numberOfLines="0" id="Xm3-hZ-jET">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                        </label>
+                        <button width="20" height="20" alignment="right" verticalAlignment="bottom" backgroundImage="info" id="MHk-Aa-dpw">
+                            <connections>
+                                <segue destination="L4u-qh-PFo" kind="modal" id="jX5-e3-Iia"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <segue destination="OXW-qC-11a" kind="relationship" relationship="nextPage" id="Oce-yT-Nbd"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+        <!--Back-->
+        <scene sceneID="usr-on-In9">
+            <objects>
+                <controller title="Back" id="L4u-qh-PFo">
+                    <items>
+                        <separator alignment="center" id="DiE-F5-v2g"/>
+                        <label alignment="center" text="iCounter" minimumScaleFactor="0.5" id="Zmx-GM-ia5">
+                            <color key="textColor" red="1" green="0.34901960780000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="25"/>
+                        </label>
+                        <separator alignment="center" id="MAm-JF-JwZ"/>
+                        <label width="1" alignment="left" text="Click The Add or remove button to add or subtract count" textAlignment="left" numberOfLines="0" id="JbN-gR-xZV">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                        </label>
+                        <label width="1" alignment="left" text="Force Press - Switch direction of count. Reset Count. Save Count " textAlignment="left" numberOfLines="0" id="jP8-Yt-MI9">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                        </label>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="346" y="-166"/>
+        </scene>
+        <!--Counter-->
+        <scene sceneID="226-86-Zj1">
+            <objects>
+                <controller title="Counter" id="OXW-qC-11a" customClass="CounterInterfaceController" customModule="iCounter_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="00" id="dAQ-9u-vFD">
+                            <fontDescription key="font" type="system" weight="black" pointSize="18"/>
+                        </label>
+                        <button width="126" height="124" alignment="center" verticalAlignment="center" title="+" backgroundImage="Exercise1" id="3bW-Uq-lGU">
+                            <color key="titleColor" red="1" green="0.30196078430000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="90"/>
+                            <connections>
+                                <action selector="addButton" destination="OXW-qC-11a" id="KxU-4a-3xl"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <menu key="menu" id="VIl-Qx-s0I">
+                        <items>
+                            <menuItem title="Reset" icon="trash" id="kSl-DD-xvX">
+                                <connections>
+                                    <action selector="resetMenu" destination="OXW-qC-11a" id="Iqc-mb-Yxo"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Save Count" icon="block" id="8WT-81-MDy">
+                                <connections>
+                                    <action selector="saveCount" destination="OXW-qC-11a" id="HV6-tB-q8Y"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Switch Direction" icon="decline" id="ZTz-P1-Rdh">
+                                <connections>
+                                    <action selector="switchDirection" destination="OXW-qC-11a" id="UNC-wZ-QiL"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="button" destination="3bW-Uq-lGU" id="jRY-E9-xp3"/>
+                        <outlet property="label" destination="dAQ-9u-vFD" id="tmH-Ih-VTc"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="282" y="442"/>
+        </scene>
+    </scenes>
+</document>
