@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6912B3EC1F4E5E0A0094945E /* MyICountInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6912B3EB1F4E5E0A0094945E /* MyICountInterfaceController.swift */; };
+		6912B3EE1F4E61F20094945E /* RowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6912B3ED1F4E61F20094945E /* RowController.swift */; };
+		6912B3F11F4E83EC0094945E /* MyICountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6912B3F01F4E83EC0094945E /* MyICountsTableViewController.swift */; };
+		6912B3F31F4E88D00094945E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6912B3F21F4E88D00094945E /* TableViewCell.swift */; };
+		6912B3F61F4E915C0094945E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6912B3F41F4E915C0094945E /* Interface.storyboard */; };
 		69BB7DDF1F41407200C9A352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB7DDE1F41407200C9A352 /* AppDelegate.swift */; };
 		69BB7DE11F41407200C9A352 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB7DE01F41407200C9A352 /* ViewController.swift */; };
 		69BB7DE41F41407200C9A352 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69BB7DE21F41407200C9A352 /* Main.storyboard */; };
 		69BB7DE61F41407200C9A352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69BB7DE51F41407200C9A352 /* Assets.xcassets */; };
 		69BB7DE91F41407200C9A352 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69BB7DE71F41407200C9A352 /* LaunchScreen.storyboard */; };
 		69BB7DEE1F41407200C9A352 /* iCounter WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 69BB7DED1F41407200C9A352 /* iCounter WatchKit App.app */; };
-		69BB7DF41F41407200C9A352 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69BB7DF21F41407200C9A352 /* Interface.storyboard */; };
 		69BB7DF61F41407200C9A352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69BB7DF51F41407200C9A352 /* Assets.xcassets */; };
 		69BB7DFD1F41407200C9A352 /* iCounter WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 69BB7DFC1F41407200C9A352 /* iCounter WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		69BB7E021F41407200C9A352 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB7E011F41407200C9A352 /* InterfaceController.swift */; };
@@ -67,6 +71,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6912B3EB1F4E5E0A0094945E /* MyICountInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyICountInterfaceController.swift; sourceTree = "<group>"; };
+		6912B3ED1F4E61F20094945E /* RowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowController.swift; sourceTree = "<group>"; };
+		6912B3F01F4E83EC0094945E /* MyICountsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyICountsTableViewController.swift; sourceTree = "<group>"; };
+		6912B3F21F4E88D00094945E /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		6912B3F51F4E915C0094945E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		69BB7DDB1F41407200C9A352 /* iCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69BB7DDE1F41407200C9A352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69BB7DE01F41407200C9A352 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +84,6 @@
 		69BB7DE81F41407200C9A352 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69BB7DEA1F41407200C9A352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69BB7DED1F41407200C9A352 /* iCounter WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iCounter WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		69BB7DF31F41407200C9A352 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		69BB7DF51F41407200C9A352 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69BB7DF71F41407200C9A352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69BB7DFC1F41407200C9A352 /* iCounter WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "iCounter WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +143,8 @@
 				69BB7DE71F41407200C9A352 /* LaunchScreen.storyboard */,
 				69BB7DEA1F41407200C9A352 /* Info.plist */,
 				69BB7E1A1F427BA700C9A352 /* Count.swift */,
+				6912B3F01F4E83EC0094945E /* MyICountsTableViewController.swift */,
+				6912B3F21F4E88D00094945E /* TableViewCell.swift */,
 			);
 			path = iCounter;
 			sourceTree = "<group>";
@@ -142,7 +152,7 @@
 		69BB7DF11F41407200C9A352 /* iCounter WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
-				69BB7DF21F41407200C9A352 /* Interface.storyboard */,
+				6912B3F41F4E915C0094945E /* Interface.storyboard */,
 				69BB7DF51F41407200C9A352 /* Assets.xcassets */,
 				69BB7DF71F41407200C9A352 /* Info.plist */,
 			);
@@ -157,6 +167,8 @@
 				69BB7E031F41407200C9A352 /* ExtensionDelegate.swift */,
 				69BB7E051F41407200C9A352 /* Assets.xcassets */,
 				69BB7E071F41407200C9A352 /* Info.plist */,
+				6912B3EB1F4E5E0A0094945E /* MyICountInterfaceController.swift */,
+				6912B3ED1F4E61F20094945E /* RowController.swift */,
 			);
 			path = "iCounter WatchKit Extension";
 			sourceTree = "<group>";
@@ -279,8 +291,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6912B3F61F4E915C0094945E /* Interface.storyboard in Resources */,
 				69BB7DF61F41407200C9A352 /* Assets.xcassets in Resources */,
-				69BB7DF41F41407200C9A352 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,9 +311,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6912B3F31F4E88D00094945E /* TableViewCell.swift in Sources */,
 				69BB7DE11F41407200C9A352 /* ViewController.swift in Sources */,
 				69BB7DDF1F41407200C9A352 /* AppDelegate.swift in Sources */,
 				69BB7E1B1F427BA700C9A352 /* Count.swift in Sources */,
+				6912B3F11F4E83EC0094945E /* MyICountsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +323,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6912B3EE1F4E61F20094945E /* RowController.swift in Sources */,
 				69BB7E161F41431700C9A352 /* CounterInterfaceController.swift in Sources */,
+				6912B3EC1F4E5E0A0094945E /* MyICountInterfaceController.swift in Sources */,
 				69BB7E041F41407200C9A352 /* ExtensionDelegate.swift in Sources */,
 				69BB7E021F41407200C9A352 /* InterfaceController.swift in Sources */,
 				69BB7E1C1F427BA700C9A352 /* Count.swift in Sources */,
@@ -332,6 +348,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6912B3F41F4E915C0094945E /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6912B3F51F4E915C0094945E /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		69BB7DE21F41407200C9A352 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -346,14 +370,6 @@
 				69BB7DE81F41407200C9A352 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		69BB7DF21F41407200C9A352 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				69BB7DF31F41407200C9A352 /* Base */,
-			);
-			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15G1510" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
     </dependencies>
@@ -20,7 +19,7 @@
                         <label alignment="center" verticalAlignment="center" text="Count Anything" textAlignment="center" numberOfLines="0" id="Xm3-hZ-jET">
                             <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                         </label>
-                        <button width="20" height="20" alignment="right" verticalAlignment="bottom" backgroundImage="info" id="MHk-Aa-dpw">
+                        <button width="26" height="26" alignment="center" verticalAlignment="bottom" backgroundImage="info" id="MHk-Aa-dpw">
                             <connections>
                                 <segue destination="L4u-qh-PFo" kind="modal" id="jX5-e3-Iia"/>
                             </connections>
@@ -31,6 +30,7 @@
                     </connections>
                 </controller>
             </objects>
+            <point key="canvasLocation" x="64" y="85"/>
         </scene>
         <!--Back-->
         <scene sceneID="usr-on-In9">
@@ -43,6 +43,11 @@
                             <fontDescription key="font" type="system" weight="semibold" pointSize="25"/>
                         </label>
                         <separator alignment="center" id="MAm-JF-JwZ"/>
+                        <button width="1" alignment="left" title="My iCounts" id="wjg-Ii-Yml">
+                            <connections>
+                                <segue destination="nj0-8L-CGr" kind="modal" identifier="toMyiCounts" id="cJr-qv-3rg"/>
+                            </connections>
+                        </button>
                         <label width="1" alignment="left" text="Click The Add or remove button to add or subtract count" textAlignment="left" numberOfLines="0" id="JbN-gR-xZV">
                             <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                         </label>
@@ -54,10 +59,47 @@
             </objects>
             <point key="canvasLocation" x="346" y="-166"/>
         </scene>
-        <!--Counter-->
+        <!--MyI Count Interface Controller-->
+        <scene sceneID="KyT-yt-rdp">
+            <objects>
+                <controller id="nj0-8L-CGr" customClass="MyICountInterfaceController" customModule="iCounter_WatchKit_Extension">
+                    <items>
+                        <label alignment="center" text="My iCounts" textAlignment="center" id="Nhd-r1-TEc">
+                            <color key="textColor" red="1" green="0.34901960780000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
+                        <table alignment="left" id="dzE-nb-1wy">
+                            <items>
+                                <tableRow identifier="Row" id="bPh-KI-Ckl" customClass="RowController" customModule="iCounter_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="m1d-mc-TTK">
+                                        <items>
+                                            <label alignment="left" text="Label" id="bBy-4T-6Ni">
+                                                <fontDescription key="font" type="boldSystem" pointSize="17"/>
+                                            </label>
+                                            <label alignment="right" verticalAlignment="bottom" text="Label" id="Sms-dq-hq4"/>
+                                        </items>
+                                        <connections>
+                                            <segue destination="OXW-qC-11a" kind="modal" id="Nya-j9-4Ld"/>
+                                        </connections>
+                                    </group>
+                                    <connections>
+                                        <outlet property="count" destination="bBy-4T-6Ni" id="3y0-RT-jjv"/>
+                                        <outlet property="date" destination="Sms-dq-hq4" id="JM9-gJ-Kkk"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="myTable" destination="dzE-nb-1wy" id="AWk-Kf-QBX"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="695" y="233"/>
+        </scene>
+        <!--Counter Interface Controller-->
         <scene sceneID="226-86-Zj1">
             <objects>
-                <controller title="Counter" id="OXW-qC-11a" customClass="CounterInterfaceController" customModule="iCounter_WatchKit_Extension">
+                <controller id="OXW-qC-11a" customClass="CounterInterfaceController" customModule="iCounter_WatchKit_Extension">
                     <items>
                         <label alignment="left" text="00" id="dAQ-9u-vFD">
                             <fontDescription key="font" type="system" weight="black" pointSize="18"/>
@@ -72,17 +114,17 @@
                     </items>
                     <menu key="menu" id="VIl-Qx-s0I">
                         <items>
-                            <menuItem title="Reset" icon="trash" id="kSl-DD-xvX">
+                            <menuItem title="Reset" icon="block" id="kSl-DD-xvX">
                                 <connections>
                                     <action selector="resetMenu" destination="OXW-qC-11a" id="Iqc-mb-Yxo"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Save Count" icon="block" id="8WT-81-MDy">
+                            <menuItem title="Save" icon="accept" id="8WT-81-MDy" userLabel="Save">
                                 <connections>
                                     <action selector="saveCount" destination="OXW-qC-11a" id="HV6-tB-q8Y"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Switch Direction" icon="decline" id="ZTz-P1-Rdh">
+                            <menuItem title="Switch" icon="decline" id="ZTz-P1-Rdh">
                                 <connections>
                                     <action selector="switchDirection" destination="OXW-qC-11a" id="UNC-wZ-QiL"/>
                                 </connections>
@@ -98,4 +140,7 @@
             <point key="canvasLocation" x="282" y="442"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Oce-yT-Nbd"/>
+    </inferredMetricsTieBreakers>
 </document>

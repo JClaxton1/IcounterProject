@@ -8,15 +8,16 @@
 
 import WatchKit
 import Foundation
+import WatchConnectivity
 
 
-class CounterInterfaceController: WKInterfaceController {
+class CounterInterfaceController: WKInterfaceController, WCSessionDelegate {
 
+    //Variables to hold current number count and direction of count
     var count = 0
     var math = "Add"
     
-    
-    
+    //Outlets for labels and button for changing appearance later
     @IBOutlet var label: WKInterfaceLabel!
     @IBOutlet var button: WKInterfaceButton!
     
@@ -35,17 +36,18 @@ class CounterInterfaceController: WKInterfaceController {
         }
     }
     
-    //resetMenu reset counter to zero
+    //resetMenu reset counter to zero, resets direction to addition
     @IBAction func resetMenu() {
         resetCounter()
     }
     
+    //sends current count to iOS App to save and add to tableview
     @IBAction func saveCount() {
-        
+    saveList()
+    resetCounter()
     }
-    //Button to Add or subtract from counter
+    //Button to Add or subtract from counter changes direction of count
     @IBAction func addButton() {
-        
         switch math {
         case "Add":
             addOne()
@@ -55,10 +57,21 @@ class CounterInterfaceController: WKInterfaceController {
         
     }
     
-    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         // Configure interface objects here.
+   
+        //Used if coming from My iCounter List will update counter with count from list
+        if context != nil {
+   
+            let dictionary = context as! [String: Any]
+            let selectedCount = dictionary["Count"] as! Count
+            
+            self.count = selectedCount.savedCount!
+            self.label.setText("\(count)")
+  
+        }
+
     }
 
     
@@ -150,11 +163,35 @@ class CounterInterfaceController: WKInterfaceController {
         return(timestamp)
     }
     
-    //Create SavedCount
-    func save (){
-        let count = Count(TimeStamp: timestamp(), SavedCount: self.count)
+    ///Create SavedCount
 
+    
+    @available(watchOS 2.2, *)
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        print(error)
+        //Send Message to get data and load into table
+       
     }
     
+    fileprivate let session: WCSession? = WCSession.isSupported() ? WCSession.default() : nil
+
+    //Create SavedCount
+    func saveList(){
+        let ct = Count(TimeStamp: timestamp(), SavedCount: self.count)
+        
+        NSKeyedArchiver.setClassName("Count", for: Count.self)
+        
+        if let session = session, session.isReachable{
+    
+            let data = NSKeyedArchiver.archivedData(withRootObject: ct)
+            
+            session.sendMessageData(data, replyHandler: nil, errorHandler: { (error) in
+                print(error.localizedDescription)
+            })
+            
+        }
+        
+        
+    }
     
 }
