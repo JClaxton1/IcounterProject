@@ -7,40 +7,62 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    var session: WCSession?{
+        didSet{
+            if let session = session{
+                session.delegate = self
+                session.activate()
+            }
+        }
+    }
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if WCSession.isSupported(){
+            session = WCSession.default()
+        }
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+}
+extension AppDelegate: WCSessionDelegate{
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
     }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
     }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
     }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    //recieving Data on watch Save
+    func session(_ session: WCSession, didReceiveMessageData messageData: Data) {
+        NSKeyedUnarchiver.setClass(Count.self, forClassName: "Count")
+        let d = NSKeyedUnarchiver.unarchiveObject(with: messageData) as! Count
+        cList.append(d)
     }
+    
+    //Recieving and replying to call for current list.
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
 
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        DispatchQueue.main.async {
+            if(message["GetList"] as? Bool) != nil{
+                NSKeyedArchiver.setClassName("Count", for: Count.self)
+                let data = NSKeyedArchiver.archivedData(withRootObject: cList)
+                replyHandler(["List":data])
+            }
+        }
     }
-
-
+    
 }
 
