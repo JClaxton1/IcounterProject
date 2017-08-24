@@ -1,0 +1,25 @@
+Jason Claxton
+C201708
+Wearable Project: Alpha
+8/24/2017
+
+Repo Link: https://github.com/JClaxton1/IcounterProject/tree/FinalBuild
+
+iCounter 
+
+Testing:
+This app has been tested on both 38mm and 42mm virtual devices.
+The App has also been tested on a real Apple watch 1st Gen running WatchOS 2.2 and and iPhone running 9.3.3
+
+Current Functionality:
+users can start a new count 
+Users can subtract from a count by force press then swap direction button
+User can reset count to Zero by by force press then Reset button
+User can save count.
+Counts save on iPhone and are add to a non clickable table view controller
+Count List pulls from iPhone to watch app and update table on Watch 
+User can select an item from table on watch and continue a count
+
+Known Issues:
+no known issues
+
